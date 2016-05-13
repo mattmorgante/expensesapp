@@ -1,1 +1,15 @@
-<%= @expense.title %>
+<h1> 
+  <%= @expense.title %> 
+</h1>
+
+<p> 
+  <%= @expense.amount %>
+<p>
+
+<p>
+  <%= @expense.category %>
+<p>
+
+<% link_to "Home", root_path %>
+<%= link_to "Edit", edit_expense_path %>
+<%= link_to "Delete", expense_path(@expense), method: :delete, data: { confirm: "Are you sure?"} %>
