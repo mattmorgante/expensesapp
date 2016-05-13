@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Expenses</title>
+  <title>Matt and Stefje's Expenses</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% Category.all.each do |category| %> 
+    <%= link_to category.name, expenses_path(category: category.name) %>
+  <% end %>
 
 <%= yield %>
 

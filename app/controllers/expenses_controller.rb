@@ -2,7 +2,14 @@ class ExpensesController < ApplicationController
 before_action :find_expense, only: [:show, :edit, :update, :destroy]
 
   def index
-    @expenses = Expense.all.order("created_at DESC")
+    # going to pass through a category hash - if it's blank everything 
+    if params[:category].blank?
+      @expenses = Expense.all.order("created_at DESC")
+    else 
+    # if the hash has a specific id, we're going to only show those expenses
+      @category_id = Category.find_by(name: params[:category]).id
+      @expenses = Expense.where(category_id: @category_id).order("created_at DESC")
+    end 
   end 
 
   def show
