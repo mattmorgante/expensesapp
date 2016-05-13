@@ -43,7 +43,7 @@ before_action :find_expense, only: [:show, :edit, :update, :destroy]
   private
 
   def expenses_params
-    params.require(:expense).permit(:title, :amount, :category)
+    params.require(:expense).permit(:title, :amount, :category_id)
 
   end 
 

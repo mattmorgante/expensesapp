@@ -2,7 +2,7 @@
 
   <%= f.input :title %>
   <%= f.input :amount %>
-  <%= f.input :category %>
+  <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category"} %>
   <%= f.button :submit %>
 
 <% end %>
