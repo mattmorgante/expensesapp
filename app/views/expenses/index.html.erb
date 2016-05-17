@@ -1,8 +1,17 @@
 <% @expenses.each do |ex| %> 
 
   <h2> <%= link_to ex.title, ex %> </h2>
-  <h5> <%= ex.amount %> </h5>  
+  <h3> How much did it cost? <%= ex.amount %> </h3>  
+  <h3> Who paid for this? <%= ex.user.email %></h3>
 
 <% end %>
 
+<h1>Total: <%= @expenses.sum("amount") %></h1>
+
+<!-- How much have you paid for stuff this much? -->
+<h1>You spent: <%= @spent_money.sum("amount") %> </h1>
+<!-- How much have other users? -->
+
+<h1>You owe: <%= (@expenses.sum("amount"))/2) - ((@spent_money.sum("amount")) %></h1>
+<!-- How much do you owe? -->
 <%= render 'chart' %>

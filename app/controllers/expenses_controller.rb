@@ -10,6 +10,8 @@ before_action :find_expense, only: [:show, :edit, :update, :destroy]
       @category_id = Category.find_by(name: params[:category]).id
       @expenses = Expense.where(category_id: @category_id).order("created_at DESC")
     end 
+    @spent_money = Expense.where(user_id: current_user)
+    @owed_money = Expense.where(user_id: current_user)
   end 
 
   def show
