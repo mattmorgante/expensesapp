@@ -21,6 +21,7 @@ before_action :find_expense, only: [:show, :edit, :update, :destroy]
 
   def create
     @expense = Expense.new(expenses_params)
+    @expense.user_id = current_user.id
 
     if @expense.save 
       redirect_to @expense
@@ -50,8 +51,7 @@ before_action :find_expense, only: [:show, :edit, :update, :destroy]
   private
 
   def expenses_params
-    params.require(:expense).permit(:title, :amount, :category_id)
-
+    params.require(:expense).permit(:title, :amount, :category_id, :user_id)
   end 
 
   def find_expense

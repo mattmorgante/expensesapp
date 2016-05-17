@@ -1,6 +1,5 @@
 *** TO DO ***
 
-* Devise 
 * Totals of both everything and of each category
 * Chart - what each user spent and how much one owes the other 
 * 
