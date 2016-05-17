@@ -14,7 +14,7 @@ before_action :find_expense, only: [:show, :edit, :update, :destroy]
 
   def show
   end 
-
+  
   def new
     @expense = Expense.new
   end
