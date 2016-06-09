@@ -1,4 +1,5 @@
-<head>
+<html>
+  <head>
     <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -21,15 +22,16 @@
         data.addColumn('string', 'Topping');
         data.addColumn('number', '');
         data.addRows([
-          ['Food', 8],
-          ['Accommodation', 9],
-          ['Transport', 3],
+          ['Accommodation', 11],
+          ['Eating & Drinking', 15],
+          ['Activities', 6],
+          ['Transportation', 3],
           ['Other', 4]
-        ]); 
+        ]);
 
         // Set chart options
-        var options = {'title':'Breakdown',
-                       'width':500,
+        var options = {'title':'Budgeting Breakdown',
+                       'width':700,
                        'height':300,
                        'pieSliceText': 'value'};
 

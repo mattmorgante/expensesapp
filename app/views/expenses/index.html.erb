@@ -5,13 +5,17 @@
   <h3> Who paid for this? <%= ex.user.email %></h3>
 
 <% end %>
+<h1>You spent: <%= @spent_money.sum("amount") %> </h1>
+<h3>Total This week = <%= @expenses.sum("amount") %></h1>
+<h1>You owe: <%= (@expenses.sum("amount"))/2) - ((@spent_money.sum("amount")) %></h1>
 
-<h1>Total: <%= @expenses.sum("amount") %></h1>
+<br>
+<br>
 
 <!-- How much have you paid for stuff this much? -->
-<h1>You spent: <%= @spent_money.sum("amount") %> </h1>
+
+
 <!-- How much have other users? -->
 
-<h1>You owe: <%= (@expenses.sum("amount"))/2) - ((@spent_money.sum("amount")) %></h1>
+
 <!-- How much do you owe? -->
-<%= render 'chart' %>
